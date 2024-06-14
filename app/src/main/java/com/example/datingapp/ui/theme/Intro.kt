@@ -26,6 +26,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
@@ -34,6 +35,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.datingapp.MainContent
 import com.example.datingapp.R
 import com.example.datingapp.R.color.white
 
@@ -51,7 +53,8 @@ fun introScreen(){
             .height(44.dp), verticalAlignment = Alignment.CenterVertically) {
             Image(painter = painterResource(R.drawable.heart), contentDescription = "heart"
             , modifier = Modifier
-                    .size(40.dp).padding(top=5.dp)
+                    .size(40.dp)
+                    .padding(top = 5.dp)
                     ,Alignment.TopEnd
             )
             Spacer(modifier = Modifier.padding(end = 12.dp))
@@ -116,8 +119,12 @@ fun introScreen(){
     }
 }
 
+
+
 @Preview(showSystemUi = true, showBackground = true)
 @Composable
 fun introScreenPreview(){
-    introScreen()
+    Box(modifier = Modifier) {
+
+    }
 }
