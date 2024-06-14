@@ -2,11 +2,13 @@ package com.example.datingapp
 
 import android.graphics.drawable.Icon
 import android.os.Bundle
+import android.view.View.OnClickListener
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -36,6 +38,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -70,6 +73,7 @@ data class TabItem(
     val unSelectedIcon:ImageVector,
     val selectedicon:ImageVector,
 )
+
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
@@ -110,17 +114,20 @@ fun MainContent(){
         if(!pagerState.isScrollInProgress){
         selectedTabIndex=pagerState.currentPage}
     }
-    Column(modifier = Modifier.fillMaxSize()) {
+    Column(modifier = Modifier
+        .fillMaxSize()
+        .background(Color.Black)) {
+        if(pagerState.currentPage==3)
+            topIcons2()
+        else
+            topIcons()
         HorizontalPager(state = pagerState,
             modifier = Modifier
                 .fillMaxWidth()
                 .weight(1F)
                 .background(Color.Black)) {index->
             Box(modifier = Modifier.fillMaxSize()){
-                if(pagerState.currentPage==3)
-                    topIcons2()
-                else
-                    topIcons()
+
             }
 
         }
@@ -163,6 +170,9 @@ fun topIcons(){
             , modifier = Modifier
                 .size(30.dp)
                 .align(Alignment.CenterVertically)
+                .clickable {
+                    println("Morning")
+                }
             , colorFilter = ColorFilter.tint(Color.White))
         Spacer(modifier = Modifier.padding(end = 270.dp))
         Image(painter = painterResource(R.drawable.messgae_icon)
@@ -170,6 +180,9 @@ fun topIcons(){
             , modifier = Modifier
                 .size(30.dp)
                 .align(Alignment.CenterVertically)
+                .clickable {
+                    println("Happy")
+                }
             , colorFilter = ColorFilter.tint(Color.White))
     }
 }
@@ -181,16 +194,25 @@ fun topIcons2(){
             , modifier = Modifier
                 .size(30.dp)
                 .align(Alignment.CenterVertically)
-            , colorFilter = ColorFilter.tint(Color.White))
+                .clickable {
+                    println("Hi")
+                }
+            , colorFilter = ColorFilter.tint(Color.White)
+        )
         Spacer(modifier = Modifier.padding(end = 270.dp))
         Image(painter = painterResource(R.drawable.hamburger_ico)
             , contentDescription = "Chevron icon"
             , modifier = Modifier
                 .size(30.dp)
                 .align(Alignment.CenterVertically)
+                .clickable {
+                    println("Hello")
+                }
             , colorFilter = ColorFilter.tint(Color.White))
     }
 }
+
+
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {

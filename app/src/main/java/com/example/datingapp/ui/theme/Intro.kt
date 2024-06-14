@@ -125,6 +125,6 @@ fun introScreen(){
 @Composable
 fun introScreenPreview(){
     Box(modifier = Modifier) {
-
+        introScreen()
     }
 }
