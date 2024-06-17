@@ -47,8 +47,8 @@ class IntroActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             Column(modifier = Modifier
-                        .fillMaxSize()
-                        .background(Color.Black)) {
+                .fillMaxSize()
+                .background(Color.Black)) {
                         Row(modifier = Modifier
                             .fillMaxWidth()
                             .padding(top = 51.dp, start = 39.dp)
@@ -109,7 +109,7 @@ class IntroActivity : ComponentActivity() {
                             Spacer(modifier = Modifier.height(30.dp))
 
                             OutlinedButton(onClick = {
-                                val intent = Intent(this@IntroActivity,MainActivity::class.java)
+                                val intent = Intent(this@IntroActivity,Loading::class.java)
                                 startActivity(intent)
                                 finish()
                             },modifier = Modifier.size(340.dp,49.dp)

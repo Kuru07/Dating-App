@@ -132,6 +132,10 @@ fun MainContent(){
                 {
                     homepage()
                 }
+                else if(pagerState.currentPage==1)
+                {
+                    serach()
+                }
             }
 
         }
