@@ -2,6 +2,7 @@ package com.example.datingapp
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -11,6 +12,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -55,17 +57,26 @@ fun homepage(){
             .size(500.dp, 130.dp)
             .fillMaxWidth()
             .padding(start = 40.dp)
+            .horizontalScroll(rememberScrollState())
         , verticalAlignment = Alignment.CenterVertically
         , horizontalArrangement = Arrangement.Center) {
                 Image(painter = painterResource(id = R.drawable.rectangle7), contentDescription = "iamge"
                 ,modifier=Modifier.size(100.dp))
             Spacer(modifier = Modifier.padding(end=30.dp))
-            Image(painter = painterResource(id = R.drawable.rectangle7), contentDescription = "iamge"
+            Image(painter = painterResource(id = R.drawable.rectangle8), contentDescription = "iamge"
                 ,modifier=Modifier.size(100.dp))
             Spacer(modifier = Modifier.padding(end=30.dp))
-            Image(painter = painterResource(id = R.drawable.rectangle7), contentDescription = "iamge"
+            Image(painter = painterResource(id = R.drawable.rectangle9), contentDescription = "iamge"
                 ,modifier=Modifier.height(100.dp)
             , contentScale = ContentScale.FillHeight)
+            Spacer(modifier = Modifier.padding(end=30.dp))
+            Image(painter = painterResource(id = R.drawable.rectangle8), contentDescription = "iamge"
+                ,modifier=Modifier.size(100.dp))
+            Spacer(modifier = Modifier.padding(end=30.dp))
+            Image(painter = painterResource(id = R.drawable.rectangle8), contentDescription = "iamge"
+                ,modifier=Modifier.size(100.dp))
+
+
         }
         Spacer(modifier = Modifier.height(25.dp))
         Row(modifier=Modifier.padding(start = 38.dp), horizontalArrangement = Arrangement.Center
@@ -86,17 +97,27 @@ fun homepage(){
             .size(500.dp, 130.dp)
             .fillMaxWidth()
             .padding(start = 40.dp)
+            .horizontalScroll(rememberScrollState())
             , verticalAlignment = Alignment.CenterVertically
             , horizontalArrangement = Arrangement.Center) {
-            Image(painter = painterResource(id = R.drawable.rectangle7), contentDescription = "iamge"
+            Image(painter = painterResource(id = R.drawable.rectngle10), contentDescription = "iamge"
                 ,modifier=Modifier.size(100.dp))
             Spacer(modifier = Modifier.padding(end=30.dp))
-            Image(painter = painterResource(id = R.drawable.rectangle7), contentDescription = "iamge"
+            Image(painter = painterResource(id = R.drawable.rectangle11), contentDescription = "iamge"
                 ,modifier=Modifier.size(100.dp))
             Spacer(modifier = Modifier.padding(end=30.dp))
-            Image(painter = painterResource(id = R.drawable.rectangle7), contentDescription = "iamge"
+            Image(painter = painterResource(id = R.drawable.rectangle12), contentDescription = "iamge"
                 ,modifier=Modifier.height(100.dp)
                 , contentScale = ContentScale.FillHeight)
+            Spacer(modifier = Modifier.padding(end=30.dp))
+            Image(painter = painterResource(id = R.drawable.rectangle8), contentDescription = "iamge"
+                ,modifier=Modifier.size(100.dp))
+            Spacer(modifier = Modifier.padding(end=30.dp))
+            Image(painter = painterResource(id = R.drawable.rectangle8), contentDescription = "iamge"
+                ,modifier=Modifier.size(100.dp))
+            Spacer(modifier = Modifier.padding(end=30.dp))
+            Image(painter = painterResource(id = R.drawable.rectangle8), contentDescription = "iamge"
+                ,modifier=Modifier.size(100.dp))
         }
         Spacer(modifier = Modifier.height(25.dp))
         Row(modifier=Modifier.padding(start = 38.dp), horizontalArrangement = Arrangement.Center
@@ -117,17 +138,27 @@ fun homepage(){
             .size(500.dp, 130.dp)
             .fillMaxWidth()
             .padding(start = 40.dp)
+            .horizontalScroll(rememberScrollState())
             , verticalAlignment = Alignment.CenterVertically
             , horizontalArrangement = Arrangement.Center) {
-            Image(painter = painterResource(id = R.drawable.rectangle7), contentDescription = "iamge"
+            Image(painter = painterResource(id = R.drawable.rectangle13), contentDescription = "iamge"
                 ,modifier=Modifier.size(100.dp))
             Spacer(modifier = Modifier.padding(end=30.dp))
-            Image(painter = painterResource(id = R.drawable.rectangle7), contentDescription = "iamge"
+            Image(painter = painterResource(id = R.drawable.rectangle14), contentDescription = "iamge"
                 ,modifier=Modifier.size(100.dp))
             Spacer(modifier = Modifier.padding(end=30.dp))
-            Image(painter = painterResource(id = R.drawable.rectangle7), contentDescription = "iamge"
+            Image(painter = painterResource(id = R.drawable.rectangle15), contentDescription = "iamge"
                 ,modifier=Modifier.height(100.dp)
                 , contentScale = ContentScale.FillHeight)
+            Spacer(modifier = Modifier.padding(end=30.dp))
+            Image(painter = painterResource(id = R.drawable.rectangle8), contentDescription = "iamge"
+                ,modifier=Modifier.size(100.dp))
+            Spacer(modifier = Modifier.padding(end=30.dp))
+            Image(painter = painterResource(id = R.drawable.rectangle8), contentDescription = "iamge"
+                ,modifier=Modifier.size(100.dp))
+            Spacer(modifier = Modifier.padding(end=30.dp))
+            Image(painter = painterResource(id = R.drawable.rectangle8), contentDescription = "iamge"
+                ,modifier=Modifier.size(100.dp))
         }
     }
 }

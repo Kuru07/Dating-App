@@ -13,6 +13,11 @@
         android:theme="@style/Theme.DatingApp"
         tools:targetApi="31">
         <activity
+            android:name=".Message"
+            android:exported="false"
+            android:label="@string/title_activity_message"
+            android:theme="@style/Theme.DatingApp" />
+        <activity
             android:name=".Loading"
             android:exported="false"
             android:label="@string/title_activity_loading"
@@ -20,8 +25,8 @@
         <activity
             android:name=".IntroActivity"
             android:exported="true"
-            android:label="Dating App"
-            android:theme="@style/Theme.DatingApp">
+            android:label="Astro Love"
+            android:theme="@style/Theme.MySplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -32,7 +37,7 @@
             android:name=".MainActivity"
             android:exported="false"
             android:label="@string/app_name"
-            android:theme="@style/Theme.DatingApp"></activity>
+            android:theme="@style/Theme.DatingApp" />
     </application>
 
 </manifest>

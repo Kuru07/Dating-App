@@ -36,6 +36,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.example.datingapp.ui.theme.DatingAppTheme
 import com.example.datingapp.ui.theme.Pink
 
@@ -45,6 +46,7 @@ val interRegular= FontFamily(Font(R.font.inter_regular))
 class IntroActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        installSplashScreen()
         setContent {
             Column(modifier = Modifier
                 .fillMaxSize()

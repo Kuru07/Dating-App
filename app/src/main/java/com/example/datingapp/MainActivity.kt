@@ -1,6 +1,7 @@
 package com.example.datingapp
 
 import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.OnBackPressedDispatcher
@@ -48,6 +49,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.core.content.ContextCompat.startActivity
 import com.example.datingapp.ui.theme.DatingAppTheme
 import com.example.datingapp.ui.theme.Pink
 
@@ -136,6 +138,9 @@ fun MainContent(){
                 {
                     serach()
                 }
+                else{
+                    profile()
+                }
             }
 
         }
@@ -191,7 +196,7 @@ fun topIcons(){
                 .size(30.dp)
                 .align(Alignment.CenterVertically)
                 .clickable {
-                    println("Happy")
+                    context.startActivity(Intent(context, Message::class.java))
                 }
             , colorFilter = ColorFilter.tint(Color.White))
     }
