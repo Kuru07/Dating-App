@@ -105,7 +105,7 @@ fun homepage(){
                 ,color= Color.White
                 , fontFamily = interRegular
                 , fontSize = 18.sp)
-            Spacer(modifier = Modifier.padding(end = 190us.dp))
+            Spacer(modifier = Modifier.padding(end = 190.dp))
             Text(text = "View more"
                 , color = Color(0xFFFFB6F8)
                 , fontFamily = interRegular
