@@ -1,9 +1,9 @@
 package com.example.datingapp
 
-import android.graphics.drawable.Icon
+import android.app.Activity
 import android.os.Bundle
-import android.view.View.OnClickListener
 import androidx.activity.ComponentActivity
+import androidx.activity.OnBackPressedDispatcher
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
@@ -20,10 +20,6 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.AccountCircle
-import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.Notifications
-import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.outlined.AccountCircle
 import androidx.compose.material.icons.outlined.Home
 import androidx.compose.material.icons.outlined.Notifications
@@ -38,7 +34,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -46,13 +41,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.datingapp.ui.theme.DatingAppTheme
 import com.example.datingapp.ui.theme.Pink
-import com.example.datingapp.ui.theme.introScreen
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -100,7 +97,7 @@ fun MainContent(){
             selectedicon = Icons.Outlined.AccountCircle
         ),
 
-    )
+        )
     var selectedTabIndex by remember {
         mutableIntStateOf(0)
     }
@@ -112,7 +109,7 @@ fun MainContent(){
     }
     LaunchedEffect(pagerState.currentPage,pagerState.isScrollInProgress){
         if(!pagerState.isScrollInProgress){
-        selectedTabIndex=pagerState.currentPage}
+            selectedTabIndex=pagerState.currentPage}
     }
     Column(modifier = Modifier
         .fillMaxSize()
@@ -127,43 +124,52 @@ fun MainContent(){
                 .weight(1F)
                 .background(Color.Black)) {index->
             Box(modifier = Modifier.fillMaxSize()){
-
+                if(pagerState.currentPage==2)
+                {
+                    notifications()
+                }
+                else if(pagerState.currentPage==0)
+                {
+                    homepage()
+                }
             }
 
         }
 
-            TabRow(
-                selectedTabIndex = selectedTabIndex, modifier = Modifier
-                    .fillMaxWidth(),
-                containerColor = Color.Black,
-                contentColor = Pink
-            ) {
-                tabitems.forEachIndexed { index, item ->
-                    val isSelected = selectedTabIndex==index
-                    val scale = if(isSelected) 1.2f else 1f
-                    Tab(
-                        selected = index == selectedTabIndex,
-                        onClick = {
-                            selectedTabIndex = index
-                        },
-                        icon = {
-                            Icon(
-                                imageVector = if (index == selectedTabIndex) {
-                                    item.selectedicon
-                                } else item.unSelectedIcon,
-                                tint = if(selectedTabIndex==index){
-                                             Pink }
-                                else
-                                    Color.White,
-                                contentDescription = null
-                            )
-                        })
-                }
+        TabRow(
+            selectedTabIndex = selectedTabIndex, modifier = Modifier
+                .fillMaxWidth(),
+            containerColor = Color.Black,
+            contentColor = Pink
+        ) {
+            tabitems.forEachIndexed { index, item ->
+                val isSelected = selectedTabIndex==index
+                val scale = if(isSelected) 1.2f else 1f
+                Tab(
+                    selected = index == selectedTabIndex,
+                    onClick = {
+                        selectedTabIndex = index
+                    }
+                    ,icon = {
+                        Icon(
+                            imageVector = if (index == selectedTabIndex) {
+                                item.selectedicon
+                            } else item.unSelectedIcon,
+                            tint = if(selectedTabIndex==index){
+                                Pink }
+                            else
+                                Color.White,
+                            contentDescription = null
+                        )
+                    })
+            }
         }
     }
 }
 @Composable
 fun topIcons(){
+    val context = LocalContext.current
+    val activity = context as? Activity
     Row (modifier = Modifier.padding(top = 60.dp, start = 30.dp, end = 30.dp)){
         Image(painter = painterResource(R.drawable.chevron_icon)
             , contentDescription = "Chevron icon"
@@ -171,12 +177,12 @@ fun topIcons(){
                 .size(30.dp)
                 .align(Alignment.CenterVertically)
                 .clickable {
-                    println("Morning")
+                    activity?.finish()
                 }
             , colorFilter = ColorFilter.tint(Color.White))
         Spacer(modifier = Modifier.padding(end = 270.dp))
         Image(painter = painterResource(R.drawable.messgae_icon)
-            , contentDescription = "Chevron icon"
+            , contentDescription = "Message icon"
             , modifier = Modifier
                 .size(30.dp)
                 .align(Alignment.CenterVertically)
@@ -188,6 +194,8 @@ fun topIcons(){
 }
 @Composable
 fun topIcons2(){
+    val context = LocalContext.current
+    val activity = context as? Activity
     Row (modifier = Modifier.padding(top = 60.dp, start = 30.dp, end = 30.dp)){
         Image(painter = painterResource(R.drawable.chevron_icon)
             , contentDescription = "Chevron icon"
@@ -195,13 +203,18 @@ fun topIcons2(){
                 .size(30.dp)
                 .align(Alignment.CenterVertically)
                 .clickable {
-                    println("Hi")
+                    activity?.finish()
                 }
             , colorFilter = ColorFilter.tint(Color.White)
         )
-        Spacer(modifier = Modifier.padding(end = 270.dp))
+        Spacer(modifier = Modifier.padding(end = 83.dp))
+        Text(text = "My Profile"
+        , color = Color.White
+        , fontFamily = interRegular
+        , fontSize = 23.sp)
+        Spacer(modifier = Modifier.padding(end = 70.dp))
         Image(painter = painterResource(R.drawable.hamburger_ico)
-            , contentDescription = "Chevron icon"
+            , contentDescription = "Hamburger icon"
             , modifier = Modifier
                 .size(30.dp)
                 .align(Alignment.CenterVertically)
@@ -213,11 +226,11 @@ fun topIcons2(){
 }
 
 
-@Preview(showBackground = true)
+@Preview(showBackground = true, showSystemUi = true)
 @Composable
-fun GreetingPreview() {
+fun Tabpreview() {
     DatingAppTheme {
-        MainContent()
+       MainContent()
 
     }
 }
